@@ -4,6 +4,7 @@ import {
   GET_PROFILE,
   GET_PROFILES,
   PROFILE_ERROR,
+  GET_REPOS,
   UPDATE_PROFILE,
   CLEAR_PROFILE,
   DELETE_ACCOUNT,
@@ -37,6 +38,23 @@ export const getAllProfiles = () => async (dispatch) => {
 
     dispatch({
       type: GET_PROFILES,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }, //Important
+    });
+  }
+};
+
+//Get profile by ID
+export const getProfileById = (userId) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/profile/user/${userId}`);
+
+    dispatch({
+      type: GET_PROFILE,
       payload: res.data,
     });
   } catch (err) {
@@ -181,6 +199,23 @@ export const deleteEducation = (id) => async (dispatch) => {
     });
 
     dispatch(setAlert("Education Removed", "success"));
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }, //Important
+    });
+  }
+};
+
+//Get github repos
+export const getGithubRepos = (username) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/profile/github/${username}`);
+
+    dispatch({
+      type: GET_REPOS,
+      payload: res.data,
+    });
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,
