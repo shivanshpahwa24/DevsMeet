@@ -44,6 +44,7 @@ export default function (state = initialState, action) {
         ...state,
         error: payload,
         loading: false,
+        profile: null, // so that no other user can access previous user's profile
       };
     case CLEAR_PROFILE:
       return {
