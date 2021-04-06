@@ -26,6 +26,12 @@ export default (state = initialState, action) => {
         posts: payload,
         loading: false,
       };
+    case GET_POST:
+      return {
+        ...state,
+        post: payload,
+        loading: false,
+      };
     case DELETE_POST:
       return {
         ...state,
