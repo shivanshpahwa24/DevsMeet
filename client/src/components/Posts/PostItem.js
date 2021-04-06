@@ -51,7 +51,13 @@ const PostItem = ({
           </Link>
           {!auth.loading && user === auth.user._id && (
             <button
-              onClick={() => deletePost(_id)}
+              onClick={() => {
+                if (
+                  window.confirm("Are you sure you want to delete this post?")
+                ) {
+                  deletePost(_id);
+                }
+              }}
               type="button"
               className="btn btn-danger"
             >
