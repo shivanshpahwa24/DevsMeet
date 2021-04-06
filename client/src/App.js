@@ -24,7 +24,6 @@ import store from "./store";
 //To see if a user is already logged in after reloading a page
 import setAuthToken from "./utils/setAuthToken";
 import { loadUser } from "./actions/auth";
-import { addExperience } from "./actions/profile";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);

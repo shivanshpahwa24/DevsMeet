@@ -8,7 +8,7 @@ const Profiles = ({ getAllProfiles, profile: { profiles, loading } }) => {
   useEffect(() => {
     //So that all the data is already filled as soon as the page loads
     getAllProfiles();
-  }, []);
+  }, [getAllProfiles]);
 
   return (
     <Fragment>
