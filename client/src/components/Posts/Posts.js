@@ -6,7 +6,7 @@ import PostForm from "./PostForm";
 import Spinner from "../Layout/Spinner";
 import { getPosts } from "../../actions/post";
 
-const Posts = ({ getPosts, post: { posts } }) => {
+const Posts = ({ getPosts, post: { posts, loading } }) => {
   useEffect(() => {
     getPosts();
   }, [getPosts]);
