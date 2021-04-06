@@ -67,7 +67,7 @@ const EditProfile = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createProfile(formData, history, true);
+    createProfile(formData, history);
   };
   return (
     <Fragment>
